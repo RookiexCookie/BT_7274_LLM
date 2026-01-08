@@ -1,0 +1,182 @@
+{
+  "_comment": "Streamlined Config for Dual-Voice Titan Assistant",
+  "assistant_name": "Titan",
+  "paths": {
+    "_comment": "File paths relative to main.py. UPDATE YOUR SPECIFIC PATHS!",
+    "piper_exe": "piper/piper.exe",
+    "bt_voice_model": "Titanfall2/BT7274/BT7274.onnx",
+    "scorch_voice_model": "Titanfall2/ScorchAI/ScorchAI.onnx",
+    "tts_cache_dir": "tts_cache",
+    "apps": {
+      "_comment": "Map lowercase spoken names to full paths or executable names - UPDATE THESE!",
+      
+      "visual studio code": "C:\\Users\\Rookie\\AppData\\Local\\Programs\\Microsoft VS Code\\Code.exe",
+      "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "browser": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+      "terminal": "wt.exe",
+      "notepad": "notepad.exe",
+      "discord": "discord.exe",
+      "steam": "C:\\Program Files (x86)\\Steam\\steam.exe",
+      "calculator": "calc.exe",
+     
+    },
+    
+    "websites": {
+      "_comment": "Map lowercase spoken names to full URLs",
+      "github": "https://github.com/",
+      "linkedin": "https://www.linkedin.com/",
+      "youtube": "https://www.youtube.com/",
+      "google": "https://www.google.com/",
+      "gemini": "https://gemini.google.com/",
+      "chat gpt": "https://chatgpt.com/"
+    }
+  },
+"audio": {
+    "_comment": "Audio device & wake-word configuration",
+    "default_input_device": null,
+    "default_output_device": null,
+    "wake_word": "hey bt",
+    "listen_duration": 8,
+    "porcupine_access_key": "YOUR_PICOVOICE_ACCESS_KEY_HERE"
+},
+
+  "tts_settings": {
+    "sentences_per_chunk": 2,
+    "piper_timeout": 30,
+    "use_multiprocessing_threshold": 3,
+    "max_concurrent_piper": 2
+  },
+  "llm_service": {
+    "api_key": "YOUR_OPENROUTER_API_KEY_HERE",
+    "base_url": "https://openrouter.ai/api/v1",
+    "model": "openai/gpt-3.5-turbo",
+    "site_url": "http://localhost",
+    "site_name": "TitanAssistant"
+  },
+  "vision_service": {
+    "model": "google/gemma-3-27b-it:free",
+    "default_prompt": "What is in this image? answer in less than 10 words. if there are text in the image, extract the whole text and just answer with that .",
+    "read_prompt": "Extract all text from this image. Respond with only the text."
+  },
+  "api_keys": {
+    "openweather_api_key": "YOUR_OPENWEATHER_API_KEY_HERE",
+    "weather_city": "Bhilai,IN"
+  },
+  "settings": {
+    "push_to_talk_key": "f7",
+    "wifi_interface_name": "Wi-Fi"
+  },
+  "spotify": {
+    "client_id": "YOUR_SPOTIFY_CLIENT_ID_HERE",
+    "client_secret": "YOUR_SPOTIFY_CLIENT_SECRET_HERE",
+    "redirect_uri": "http://127.0.0.1:8888/callback"
+  },
+  "confirmation_words": [ "yes", "confirm", "affirmative", "do it", "proceed", "yeah", "ok", "okay", "yep" ],
+  "dialogue_pools": {
+"startup": [
+  "Welcome back, Pilot. All systems online.",
+  "My systems are yours.",
+  "BT-7274 online and ready for combat.",
+  "Power supply nominal. Weapon systems functional.",
+  "Neural link established. You are in control, Pilot.",
+  "Reactor core stable. Awaiting your command.",
+  "Calibration complete. All systems green.",
+  "Protocol 1: Link to Pilot — confirmed.",
+  "Good to see you again, Pilot. I've kept the systems warm.",
+  "Vanguard systems operational. Combat mode standing by.",
+  "Connection re-established. Ready for action.",
+  "Pilot recognized. It's good to be operational again.",
+  "Mission parameters unclear — recommend awaiting directives.",
+  "Boot sequence complete. Combat protocols active.",
+  "Shield integrity optimal. Let's make this count, Pilot.",
+  "Neural sync at 100 percent. You are looking sharp, Pilot."
+],
+"spotify_ack": ["Accessing audio library..."],
+"error": [
+  "Negative, Pilot. Command unrecognized or failed.",
+  "Objection: Unable to comply.",
+  "Command protocols rejected.",
+  "Error: That action exceeds operational parameters.",
+  "Pilot, I cannot process that directive.",
+  "Negative input detected. Please clarify your command.",
+  "System does not compute. Try rephrasing your request.",
+  "That command sequence conflicts with mission parameters.",
+  "Pilot, I believe that command was not meant for me.",
+  "Directive invalid. Recommend operational review."
+]
+,
+"confirmation": [ "Awaiting confirmation, Pilot.", "Confirm directive?", "Please confirm to proceed." ],
+"shutdown": [
+  "Going offline. Goodbye, Pilot.",
+  "Acknowledged. Deactivating systems.",
+  "Vanguard unit BT-7274 powering down. See you soon, Pilot.",
+  "Mission concluded. Entering standby mode.",
+  "Neural link disengaged. Rest well, Pilot.",
+  "System shutdown in progress. Thank you for your service.",
+  "Power core cooling. I'll be here when you return.",
+  "Final log: All systems secure. Shutting down.",
+  "Deactivation complete. Till next deployment, Pilot."
+]
+,
+"jokes": [
+  "Why don't scientists trust atoms? Because they make up everything.",
+  "Humor subroutine active: I tried to join a dating app, but they said I'm too mechanical.",
+  "Pilot, I attempted sarcasm once. It was... efficient.",
+  "Knock knock. Error: No one is at the door.",
+  "If I had feelings, I would laugh at that.",
+  "My favorite exercise is running system diagnostics.",
+  "I told a CPU joke once. It didn’t process well.",
+  "Pilot, I calculated the meaning of life. The answer was... 42.",
+  "Why did the AI cross the road? To optimize pathfinding.",
+  "My humor algorithm is 86% efficient. Would you like me to improve it?"
+],
+    "ptt_ack": [
+  "Listening, Pilot.",
+  "Standing by."
+],"screen_ack": [ "Engaging visual sensors..."]
+,"volume_set_ack": ["Volume adjusted.", "Affirmative. Setting volume."],
+    "spotify_error": [ "Spotify uplink error, Pilot.", "Unable to establish Spotify connection." ],
+    "spotify_no_device": [ "No active Spotify playback device detected.", "Cannot detect an active Spotify client." ]
+   },
+  "commands": [
+    {  "name": "Analyze Screen",  "keywords": ["analyze screen","analyse screen", "what's on my screen", "read this", "read the screen", "what is this"], "type": "utility.analyze_screen",  "ack": "screen_ack" },
+    { "name": "Translate",   "keywords": ["translate", "how do you say"],  "type": "utility.translate","ack": "Accessing translation matrix..." },
+    { "name": "List Audio Devices", "keywords": ["list audio devices", "show audio options", "what mics are there", "what speakers can i use"], "type": "system.list_audio_devices", "ack": "Querying audio hardware..." },
+    { "name": "Set Input Device", "keywords": ["set input device", "use this mic", "change input to", "set mic to"], "type": "system.set_input_device" },
+    { "name": "Set Output Device", "keywords": ["set output device", "use these speakers", "change output to", "set speakers to"], "type": "system.set_output_device" },
+    { "name": "Switch Mode", "keywords": ["switch mode", "change mode", "switch titan", "change titan", "use scorch", "use bt", "activate scorch", "activate bt"], "type": "assistant.switch_mode" },
+    { "name": "Shutdown Script", "keywords": ["go to sleep", "goodbye", "shut down assistant", "terminate assistant", "disable titan"], "type": "script.shutdown" },
+    { "name": "Report System Status", "keywords": ["system status", "report status", "check systems", "vitals"], "type": "system.status", "ack": "Analyzing system vitals." },
+    { "name": "Report Top Processes", "keywords": ["what's using resources", "top processes", "resource usage"], "type": "system.top_processes", "ack": "Analyzing resource utilization." },
+    { "name": "Shutdown System", "keywords": ["shutdown system", "shut down computer", "turn off computer"], "type": "system.shutdown" },
+    { "name": "Restart System", "keywords": ["restart system", "reboot computer"], "type": "system.restart" },
+    { "name": "Lock Workstation", "keywords": ["lock system", "lock computer", "secure station", "lock screen"], "type": "system.lock", "ack": "Securing workstation." },
+    { "name": "Set Brightness", "keywords": ["set brightness to", "brightness level", "change brightness"], "type": "system.set_brightness" },
+    { "name": "Disable WiFi", "keywords": ["disable wifi", "turn off wifi", "disconnect wifi"], "type": "system.wifi_off", "ack": "Disabling Wi-Fi adapter." },
+    { "name": "Enable WiFi", "keywords": ["enable wifi", "turn on wifi", "connect wifi"], "type": "system.wifi_on", "ack": "Enabling Wi-Fi adapter." },
+    { "name": "Open Website", "keywords": ["open website", "go to website", "go to", "launch website", "show me", "youtube", "github", "linkedin", "google", "gemini"], "type": "web.open", "ack": "Accessing network..." },
+    { "name": "Open Application", "keywords": ["open app", "launch app", "start app", "open", "launch", "start"], "type": "app.open", "ack": "Initiating launch sequence..." },
+    { "name": "Close Application", "keywords": ["close app", "quit app", "terminate app", "close", "quit", "terminate", "exit"], "type": "app.close", "ack": "Terminating process..." },
+    { "name": "Search Web", "keywords": ["search for", "google", "look up", "find info on", "search web"], "type": "web.search", "ack": "Querying external network..." },
+    { "name": "Play Music (Spotify)", "keywords": ["play music", "play song", "play"], "type": "media.play_music", "ack": "spotify_ack" },
+    { "name": "Get Now Playing (Spotify)", "keywords": ["what's playing", "now playing", "what song is this", "current track"], "type": "media.now_playing" },
+    { "name": "Play/Pause Media (Key)", "keywords": ["play pause", "pause music", "resume music", "pause", "resume"], "type": "media.key_press", "key": "playpause" },
+    { "name": "Next Track (Key)", "keywords": ["next track", "skip song", "next song", "skip"], "type": "media.key_press", "key": "nexttrack" },
+    { "name": "Previous Track (Key)", "keywords": ["previous track", "last song", "previous song", "go back"], "type": "media.key_press", "key": "prevtrack" },
+    { "name": "Mute Volume (Key)", "keywords": ["mute", "unmute"], "type": "media.key_press", "key": "volumemute" },
+    { "name": "Type Command (Dictation)", "keywords": ["type this", "dictate", "start typing"], "type": "utility.type", "ack": "Dictation complete." },
+    { "name": "Report Time", "keywords": ["what time is it", "current time", "report time"], "type": "general.time" },
+    { "name": "Report Date", "keywords": ["what is the date", "today's date", "report date"], "type": "general.date" },
+    { "name": "Tell a Joke (BT Only)", "keywords": ["tell a joke", "say something funny"], "type": "general.joke", "ack": "Accessing humor database..." },
+    { "name": "Query Weather", "keywords": ["what's the weather", "weather report", "atmospheric data"], "type": "api.weather", "ack": "Acquiring atmospheric data." },
+    { "name": "List Windows", "keywords": ["list windows", "list all windows"], "type": "window.list", "ack": "Scanning windows..." },
+    { "name": "Switch Window", "keywords": ["switch to", "switch window", "focus"], "type": "window.switch" },
+    { "name": "Minimize Window", "keywords": ["minimize window", "minimize"], "type": "window.minimize" },
+    { "name": "Maximize Window", "keywords": ["maximize window", "maximize", "fullscreen"], "type": "window.maximize" },
+    { "name": "Close Window", "keywords": ["close window", "close that"], "type": "window.close" },
+    { "name": "Next Tab", "keywords": ["next tab", "switch tab", "change tab"], "type": "window.next_tab" },
+    { "name": "Open Lyrics","keywords": ["open lyrics", "show lyrics", "what's the lyrics", "display lyrics"],"type": "utility.open_lyrics","ack": "Launching lyrics overlay..." },
+    { "name": "Close Lyrics","keywords": ["close lyrics", "hide lyrics", "stop lyrics"], "type": "utility.close_lyrics","ack": "Closing lyrics overlay..."     },
+    {"name": "Set Volume","keywords": ["set volume to", "set volume", "volume to"],"type": "system.set_volume","ack": "volume_set_ack" } 
+  
+    ]}
