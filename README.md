@@ -131,7 +131,7 @@ The project uses **Piper TTS** for voice synthesis. You need:
 ### Step 3: Wake-Word Model
 
 The `Hey_Bt.ppn` file is **Picovoice Porcupine's** keyword model. It's provided in the repo—no additional setup needed unless you want to custom-train a new model.
-Just change the api key that you'll find in the `config.json` for porcupine.
+Just change the api key that you'll find in the `config.json` and in  `main.py`for porcupine.
 
 ---
 
